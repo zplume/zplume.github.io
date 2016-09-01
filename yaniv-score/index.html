@@ -34,9 +34,9 @@
                 <h2></h2>
                 <div class="row">
                     <div class="col-xs-12">
-                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="click: currentView.bind(null, 2)">Play</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: currentView.bind(null, 2)">Play</button>
                         <!--<button type="button" class="btn btn-primary btn-lg btn-block" data-bind="visible: chooseGroup.showPreviousGames">Previous games</button>-->
-                        <button type="button" class="btn btn-primary btn-lg btn-block btn-danger" data-bind="click: chooseGroup.clearData.bind(chooseGroup), visible: chooseGroup.showClearData">Clear data</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block btn-danger" data-bind="tap: chooseGroup.clearData.bind(chooseGroup), visible: chooseGroup.showClearData">Clear data</button>
                     </div>
                 </div>
             </div>
@@ -51,14 +51,15 @@
                         <div class="row">
                             <div class="col-xs-8 pad-row-text" data-bind="text: $root.data.players()[$data.id()].name"></div>
                             <div class="col-xs-4">
-                                <input type="number" class="form-control align-right" pattern="[0-9]*" data-bind="value: score, valueUpdate: ['input', 'keyup'], hasFocus: hasFocus" />
+                                <input type="number" class="form-control align-right" pattern="[0-9]*" data-bind="value: score, valueUpdate: ['input', 'keyup'], hasFocus: hasFocus, fastFocus" />
+                                <!--tap: hasFocus.bind(null, true)-->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="click: enterRoundScores.saveScores.bind(enterRoundScores), enable: enterRoundScores.enableSaveScores()">Save scores</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: enterRoundScores.saveScores.bind(enterRoundScores), enable: enterRoundScores.enableSaveScores()">Save scores</button>
                     </div>
                 </div>
             </div>
@@ -105,8 +106,8 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="click: gameScores.nextRound.bind(gameScores), visible: !gameScores.gameOver()">Enter round scores</button>
-                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="click: gameScores.viewGamesLost.bind(gameScores), visible: gameScores.gameOver()">Play again</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: gameScores.nextRound.bind(gameScores), visible: !gameScores.gameOver()">Enter round scores</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: gameScores.viewGamesLost.bind(gameScores), visible: gameScores.gameOver()">Play again</button>
                     </div>
                 </div>
             </div>
@@ -129,32 +130,33 @@
                 <h2>Who's playing?</h2>
                 <div class="row pad-top">
                     <div class="col-xs-12">
-                        <input type="text" class="form-control" id="addPlayerName" placeholder="Add player" data-bind="value: selectPlayers.playerName" />
+                        <input type="text" class="form-control" id="addPlayerName" placeholder="Add player" data-bind="value: selectPlayers.playerName, fastFocus" />
                     </div>
                 </div>
                 <div class="player-list striped-rows" data-bind="foreach: selectPlayers.enabledPlayers">
-                    <div class="row">
+                    <div class="row" data-bind="tap: $root.selectPlayers.select.bind($root.selectPlayers, $data)">
                         <div class="col-xs-9">
                             <div class="checkbox">
                                 <label>
-                        <input type="checkbox" data-bind="checked: selected"> <span data-bind="text: name">
+                        <input type="checkbox" data-bind="checked: selected" /> <span data-bind="text: name">
                     </label>
                             </div>
                         </div>
                         <div class="col-xs-3 margin-10-0">
-                            <button class="btn btn-danger btn-xs" data-bind="click: $data.enabled.bind($data, false)">Delete</a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="click: selectPlayers.startGame.bind(selectPlayers), enable: selectPlayers.enableStartGame">Start game</button>
+                            <button class="btn btn-danger btn-xs" data-bind="tap: $data.enabled.bind($data, false)">Delete</button>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!--<button type="button" class="btn btn-primary btn-lg btn-block" data-bind="press: selectPlayers.startGame.bind(selectPlayers), enable: selectPlayers.enableStartGame">Start game</button>-->
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: selectPlayers.startGame.bind(selectPlayers), enable: selectPlayers.enableStartGame">Start game</button>
                     </div>
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="app.min.js"></script>
+    </div>
+    <script type="text/javascript" src="app.min.js"></script>
 </body>
 
 </html>
