@@ -51,8 +51,8 @@
                         <div class="row">
                             <div class="col-xs-8 pad-row-text" data-bind="text: $root.data.players()[$data.id()].name"></div>
                             <div class="col-xs-4">
-                                <input type="number" class="form-control align-right" pattern="[0-9]*" data-bind="value: score, valueUpdate: ['input', 'keyup'], hasFocus: hasFocus, fastFocus" />
-                                <!--tap: hasFocus.bind(null, true)-->
+                                <input type="number" class="form-control align-right" pattern="[0-9]*" data-bind="value: score, valueUpdate: ['input', 'keyup'], hasFocus: hasFocus" />
+                                <!--, fastFocus-->
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,8 @@
                 <h2>Who's playing?</h2>
                 <div class="row pad-top">
                     <div class="col-xs-12">
-                        <input type="text" class="form-control" id="addPlayerName" placeholder="Add player" data-bind="value: selectPlayers.playerName, fastFocus" />
+                        <input type="text" class="form-control" id="addPlayerName" placeholder="Add player" data-bind="value: selectPlayers.playerName" />
+                        <!--fastFocus-->
                     </div>
                 </div>
                 <div class="player-list striped-rows" data-bind="foreach: selectPlayers.enabledPlayers">
