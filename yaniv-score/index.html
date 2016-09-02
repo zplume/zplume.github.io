@@ -134,8 +134,8 @@
                     </div>
                 </div>
                 <div class="player-list striped-rows" data-bind="foreach: selectPlayers.enabledPlayers">
-                    <div class="row" data-bind="tap: $root.selectPlayers.select.bind($root.selectPlayers, $data)">
-                        <div class="col-xs-9">
+                    <div class="row">
+                        <div class="col-xs-9" data-bind="tap: $root.selectPlayers.select.bind($root.selectPlayers, $data)">
                             <div class="checkbox">
                                 <label>
                         <input type="checkbox" data-bind="checked: selected" /> <span data-bind="text: name">
