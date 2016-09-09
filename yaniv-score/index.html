@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="appcache.mf">
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,6 @@
 <body>
     <div>
         <h1 data-bind="click: reload">Yaniv</h1>
-
         <div id="views" style="display:none;">
             <!--
     Select players view
@@ -158,13 +157,6 @@
         </div>
     </div>
     <script type="text/javascript" src="app.min.js"></script>
-    <script type="text/javascript" src="upup.min.js"></script>
-    <script>
-        UpUp.start({
-            "content-url": "index.html",
-            "assets": ["app.min.css", "app.min.js"]
-        });
-    </script>
 </body>
 
 </html>
