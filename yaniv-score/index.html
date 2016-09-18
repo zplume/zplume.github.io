@@ -14,7 +14,7 @@
 
 <body>
     <div>
-        <h1 data-bind="click: reload">Yaniv</h1>
+        <h1 id="header" data-bind="click: reload">Yaniv</h1>
         <div id="views" style="display:none;">
             <!--
     Select players view
@@ -42,7 +42,7 @@
             <div id="enterRoundScores" class="view container-fluid">
                 <h2>Enter round scores</h2>
                 <div class="vertical-spacing">
-                    <div class="row header">
+                    <div class="row header animate-in">
                         <div class="col-xs-9 pad-row-text">👥</div>
                         <div class="col-xs-3 pad-row-text align-center">🎲</div>
                     </div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 animate-in">
                         <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: enterRoundScores.saveScores.bind(enterRoundScores), enable: enterRoundScores.enableSaveScores()">Save scores</button>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 <h2>Game scores</h2>
 
                 <div class="vertical-spacing">
-                    <div class="row header">
+                    <div class="row header animate-in">
                         <div class="col-xs-6 pad-row-text">👥</div>
                         <div class="col-xs-3 pad-row-text">🎲</div>
                         <div class="col-xs-3 pad-row-text">💀</div>
@@ -104,7 +104,7 @@
         </div>-->
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 animate-in">
                         <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: gameScores.nextRound.bind(gameScores), visible: !gameScores.gameOver()">Enter round scores</button>
                         <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: gameScores.viewGamesLost.bind(gameScores), visible: gameScores.gameOver()">Play again</button>
                     </div>
@@ -123,21 +123,23 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div data-bind="visible: login.showPrompt()">
-                            <h3>Sign in and sync' your data with Google Drive?</h3>
-                            <div class="vertical-spacing">Sync'ing your data means it is backed up and can be automatically restored from the last sync next time the app loads. This is useful if you ever clear your browser history or switch browsers. There is no merging of local and
+                            <h3 class="animate-in">Sign in and sync' your data with Google Drive?</h3>
+                            <div class="vertical-spacing animate-in">Sync'ing your data means it is backed up and can be automatically restored from the last sync next time the app loads. This is useful if you ever clear your browser history or switch browsers. There is no merging of local and
                                 backup data when sync'ing, the most recent data is used to overwrite the least recent data, regardless of location. You need an internet connection to sync. <strong>Sync now?</strong>
                             </div>
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: login.sync.bind(login)">Yes please</button>
-                            <button type="button" class="btn btn-primary btn-lg btn-block btn-danger" data-bind="tap: login.skip.bind(login)">No thanks</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block animate-in" data-bind="tap: login.sync.bind(login)">Yes please</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block btn-danger animate-in" data-bind="tap: login.skip.bind(login)">No thanks</button>
                         </div>
                         <div id="loginStatus" data-bind="text: login.loginStatus"></div>
                     </div>
                 </div>
             </div>
             <div id="logo" class="view container-fluid">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="inlined-svg-enter inlined-svg"><circle cx="256" cy="256" r="256" fill="transparent" stroke="#fff" stroke-width="0"></circle><path d="M150.156 82.406c-1.843.092-3.663.446-5.344 1.063L41.094 121.53c-4.483 1.645-8.493 5.357-10.5 9.69-2.007 4.33-2.238 9.798-.594 14.28l66.72 181.875c1.643 4.482 5.354 8.524 9.686 10.53 4.332 2.008 9.8 2.24 14.28.595l103.72-38.063c4.483-1.644 8.493-5.355 10.5-9.687l.03-.063c1.982-4.322 2.2-9.757.564-14.218L168.78 94.593c-1.635-4.46-5.318-8.484-9.624-10.5l-.062-.03c-2.166-1.005-4.623-1.556-7.094-1.658-.618-.025-1.23-.03-1.844 0zM189.22 96.03l63.843 174c3.41 9.3 2.975 19.61-1.188 28.595-4.163 8.986-11.734 15.965-21.03 19.375l-27.44 10.063 60 2.78c4.77.223 9.91-1.66 13.44-4.874 3.528-3.217 5.87-8.17 6.092-12.94l9-193.5c.222-4.768-1.628-9.938-4.843-13.468-3.216-3.53-8.168-5.87-12.938-6.093l-84.937-3.94zm121 33.25l-8.626 184.626c-.46 9.893-4.836 19.237-12.156 25.906-7.32 6.67-17.014 10.148-26.907 9.688l-26.06-1.22 69.374 23.095c4.53 1.507 10.012 1.107 14.28-1.03 4.27-2.14 7.838-6.283 9.345-10.814l61.155-183.81c1.507-4.532 1.107-10.013-1.03-14.282-2.14-4.27-6.283-7.87-10.814-9.375l-68.56-22.782zm-205.064 18.345c24.458 24.936 68.02 17.74 80.75 45.53 11.875 25.927-14.51 46.006-37.97 38.407l17 30.782-18.78 6.906-10.937-31.688c-10.39 22.624-43.053 23.746-54.157-.53-13.53-29.577 24.02-54.2 24.093-89.407zm301.438 39.22L347.22 365.437c-3.127 9.397-9.865 17.19-18.72 21.625l-.094.03c-8.834 4.396-19.07 5.116-28.437 2l-20.376-6.78 43.312 37.03c3.63 3.102 8.865 4.78 13.625 4.407 4.76-.374 9.618-2.84 12.72-6.47l125.875-147.31c3.102-3.63 4.78-8.835 4.406-13.595-.372-4.76-2.87-9.648-6.5-12.75l-66.436-56.78z" fill="#fff"></path></svg>
+                <div id="logoContainer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="inlined-svg-enter inlined-svg"><circle cx="256" cy="256" r="256" fill="transparent" stroke="#fff" stroke-width="0"></circle><path d="M150.156 82.406c-1.843.092-3.663.446-5.344 1.063L41.094 121.53c-4.483 1.645-8.493 5.357-10.5 9.69-2.007 4.33-2.238 9.798-.594 14.28l66.72 181.875c1.643 4.482 5.354 8.524 9.686 10.53 4.332 2.008 9.8 2.24 14.28.595l103.72-38.063c4.483-1.644 8.493-5.355 10.5-9.687l.03-.063c1.982-4.322 2.2-9.757.564-14.218L168.78 94.593c-1.635-4.46-5.318-8.484-9.624-10.5l-.062-.03c-2.166-1.005-4.623-1.556-7.094-1.658-.618-.025-1.23-.03-1.844 0zM189.22 96.03l63.843 174c3.41 9.3 2.975 19.61-1.188 28.595-4.163 8.986-11.734 15.965-21.03 19.375l-27.44 10.063 60 2.78c4.77.223 9.91-1.66 13.44-4.874 3.528-3.217 5.87-8.17 6.092-12.94l9-193.5c.222-4.768-1.628-9.938-4.843-13.468-3.216-3.53-8.168-5.87-12.938-6.093l-84.937-3.94zm121 33.25l-8.626 184.626c-.46 9.893-4.836 19.237-12.156 25.906-7.32 6.67-17.014 10.148-26.907 9.688l-26.06-1.22 69.374 23.095c4.53 1.507 10.012 1.107 14.28-1.03 4.27-2.14 7.838-6.283 9.345-10.814l61.155-183.81c1.507-4.532 1.107-10.013-1.03-14.282-2.14-4.27-6.283-7.87-10.814-9.375l-68.56-22.782zm-205.064 18.345c24.458 24.936 68.02 17.74 80.75 45.53 11.875 25.927-14.51 46.006-37.97 38.407l17 30.782-18.78 6.906-10.937-31.688c-10.39 22.624-43.053 23.746-54.157-.53-13.53-29.577 24.02-54.2 24.093-89.407zm301.438 39.22L347.22 365.437c-3.127 9.397-9.865 17.19-18.72 21.625l-.094.03c-8.834 4.396-19.07 5.116-28.437 2l-20.376-6.78 43.312 37.03c3.63 3.102 8.865 4.78 13.625 4.407 4.76-.374 9.618-2.84 12.72-6.47l125.875-147.31c3.102-3.63 4.78-8.835 4.406-13.595-.372-4.76-2.87-9.648-6.5-12.75l-66.436-56.78z" fill="#fff"></path></svg>
+                </div>
                 <div id="loadingStatus" data-bind="foreach: logo.loadingStatusMessages">
-                    <div data-bind="text: $data"></div>
+                    <div data-bind="text: $data" class="animate-in"></div>
                 </div>
             </div>
             <div id="scoreDeduction" class="view container-fluid">
@@ -147,9 +149,8 @@
             <div id="selectPlayers" class="view container-fluid">
                 <h2>Who's playing?</h2>
                 <div class="row pad-top">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 animate-in">
                         <input type="text" class="form-control" id="addPlayerName" placeholder="Add player" data-bind="value: selectPlayers.playerName, fastFocus" />
-                        <!--fastFocus-->
                     </div>
                 </div>
                 <div class="player-list striped-rows" data-bind="foreach: selectPlayers.enabledPlayers">
@@ -167,8 +168,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
-                        <!--<button type="button" class="btn btn-primary btn-lg btn-block" data-bind="press: selectPlayers.startGame.bind(selectPlayers), enable: selectPlayers.enableStartGame">Start game</button>-->
+                    <div class="col-xs-12 animate-in">
                         <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="tap: selectPlayers.startGame.bind(selectPlayers), enable: selectPlayers.enableStartGame">Start game</button>
                     </div>
                 </div>
