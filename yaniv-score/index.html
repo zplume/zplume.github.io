@@ -80,7 +80,7 @@
                         <div class="col-xs-3 pad-row-text">💀</div>
                     </div>
                     <div data-bind="foreach: data().currentGame().playerScores" class="striped-rows enter-scores">
-                        <div class="row" data-bind="attr: {'class': $root.gameScores.rowStatusClass($data.id()) }">
+                        <div class="row" data-bind="attr: {'data-status': $root.gameScores.rowStatus($data.id()) }">
                             <div class="col-xs-6 pad-row-text" data-bind="text: $root.data().players()[$data.id()].name"></div>
                             <div class="col-xs-3 pad-row-text" data-bind="text: score"></div>
                             <div class="col-xs-3 pad-row-text" data-bind="text: gamesLost"></div>
