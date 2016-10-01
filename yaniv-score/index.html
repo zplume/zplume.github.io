@@ -16,19 +16,6 @@
     <div>
         <h1 id="header" data-bind="click: reload">Yaniv</h1>
         <div id="views" style="display:none;">
-            <!--
-    Select players view
-        [ ] Add new players
-        [ ] Select existing players
-        [ ] Start game: loads scores for those players or creates a new player scoreboard for that combo
-
-    Game view
-        [ ] Add scores for the round, button for +26 if failed "Yaniv"
-        [ ] Auto management of scores on multiples of 25
-        [ ] Auto alert when someone exceeds 100 points
-        [ ] Keeps tally of games lost for that combo of people
-        [ ] Restart round (clear scores, but not tally)
--->
             <div id="chooseGroup" class="view container-fluid">
                 <h2></h2>
                 <div class="row">
@@ -158,7 +145,10 @@
                         <div class="col-xs-9" data-bind="tap: $root.selectPlayers.select.bind($root.selectPlayers, $data)">
                             <div class="checkbox">
                                 <label>
-                        <input type="checkbox" data-bind="checked: selected" /> <span data-bind="text: name">
+                        <input type="checkbox" data-bind="checked: selected()" />
+                        <!--<span data-bind="visible: selected()"></span>
+                        <span data-bind="visible: !selected()"></span>-->
+                        <span data-bind="text: name">
                     </label>
                             </div>
                         </div>
