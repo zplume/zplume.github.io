@@ -37,11 +37,11 @@
         visibility: hidden;
     }
     
-    #cboxContent{ background:#fff; overflow:hidden; border-radius: 10px; }
+    #cboxContent{ background:#fff; overflow:hidden; /*border-radius: 10px;*/ }
         .cboxIframe{background:#fff;}
         #cboxError{padding:50px; border:1px solid #ccc;}
         #cboxLoadedContent{margin-top:28px;}
-        #cboxTitle{position:absolute; top:4px; left:0; text-align:center; width:100%; color:#949494;}
+        #cboxTitle{position:absolute; top:0; left:0; text-align:center; width:100%; color:white; padding:4px 0; background-color:#555; }
         #cboxCurrent{position:absolute; top:4px; left:58px; color:#949494;}
         #cboxLoadingOverlay{background-color: black;}
         #cboxLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}
@@ -57,8 +57,7 @@
         #cboxPrevious:hover{background-position:-75px -25px;}
         #cboxNext{position:absolute; bottom:0; left:27px; background:url(images/controls.png) no-repeat -50px 0; width:25px; height:25px; text-indent:-9999px;}
         #cboxNext:hover{background-position:-50px -25px;}
-        #cboxClose{position:absolute; top:0; right:0; background:url(images/controls.png) no-repeat -25px 0; width:25px; height:25px; text-indent:-9999px;}
-        #cboxClose:hover{background-position:-25px -25px;}
+        #cboxClose{position:absolute; top:10px; right:10px; font-family: "yam-yamicon"; font-size:8px; color:white; }        
 
 /*
   The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
